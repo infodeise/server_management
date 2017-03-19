@@ -1,0 +1,14 @@
+<mapping>
+	<class name="com.dimendiondata.server_management.model.Server">
+
+		<map-to xml="server" />
+
+		<field name="name" type="string">
+			<bind-xml name="name" node="element" />
+		</field>
+
+		<field name="description" type="string">
+			<bind-xml name="description" node="element" />
+		</field>
+	</class>
+</mapping>
