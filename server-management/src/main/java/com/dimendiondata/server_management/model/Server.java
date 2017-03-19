@@ -53,5 +53,8 @@ public class Server {
 		this.description = description;
 	}
 	
+	public String toString(){
+		return "id="+id+", name="+name+", description="+description;
+	}
 	
 }

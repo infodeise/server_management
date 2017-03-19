@@ -10,14 +10,16 @@ import org.hibernate.query.Query;
 import com.dimendiondata.server_management.model.Server;
 
 /**
- * This class is responsible to implement the operations related Server store
+ * This class is responsible to implement the operations related Server
+ * repository
+ * 
  * @author deise
  *
  */
-public class ServerRepository implements ServerDao{
-	
+public class ServerRepository implements ServerDao {
+
 	private SessionFactory sessionFactory;
-	
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
@@ -28,7 +30,6 @@ public class ServerRepository implements ServerDao{
 		session.persist(server);
 		transaction.commit();
 		session.close();
-		
 	}
 
 	public void update(Server server) {
@@ -64,5 +65,4 @@ public class ServerRepository implements ServerDao{
 		return serverList;
 	}
 
-	
 }
