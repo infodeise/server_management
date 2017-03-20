@@ -52,7 +52,7 @@ public class ServerRepository implements ServerDao {
 
 	public int count() {
 		Session session = this.sessionFactory.openSession();
-		Query query = session.createQuery("select count(*) from Server");
+		Query query = session.createQuery("SELECT COUNT(*) FROM Server");
 		Long result = (Long) query.uniqueResult();
 		session.close();
 		return result.intValue();
@@ -60,8 +60,27 @@ public class ServerRepository implements ServerDao {
 
 	public List<Server> list() {
 		Session session = this.sessionFactory.openSession();
-		List<Server> serverList = session.createQuery("from Server").list();
+		List<Server> serverList = session.createQuery("FROM Server").list();
 		session.close();
+		return serverList;
+	}
+
+	public List<Server> listPaging(int first, int limit) {
+		Session session = this.sessionFactory.openSession();
+		Query query = session.createQuery("FROM Server");
+        query.setFirstResult(first);
+        query.setMaxResults(limit);
+        List<Server> serverList = query.list();
+		return serverList;
+	}
+
+	public List<Server> listFiltering(int first, int limit, String query) {
+		Session session = this.sessionFactory.openSession();
+		Query q = session.createQuery("FROM Server WHERE name LIKE :query");
+		q.setParameter("query", "%"+query+"%");
+        q.setFirstResult(first);
+        q.setMaxResults(limit);
+        List<Server> serverList = q.list();
 		return serverList;
 	}
 

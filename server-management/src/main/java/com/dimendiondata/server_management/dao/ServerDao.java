@@ -15,4 +15,8 @@ public interface ServerDao {
 	public int count();
 	
 	public List<Server> list();
+	
+	public List<Server> listPaging(int first, int limit);
+	
+	public List<Server> listFiltering(int first, int limit, String query);
 }

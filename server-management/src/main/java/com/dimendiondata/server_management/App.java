@@ -33,9 +33,9 @@ public class App {
 				printHelp();
 			} else if (action.equals("add")) {
 				Server server = new Server();
-				System.out.println("Enter with the name of server:\n");
+				System.out.println("Server name:\n");
 				server.setName(scanner.nextLine());
-				System.out.println("Enter with the description of server:\n");
+				System.out.println("Server description:\n");
 				server.setDescription(scanner.nextLine());
 				serverDAO.insert(server);
 				
@@ -43,24 +43,24 @@ public class App {
 
 			} else if (action.equals("edit")) {
 				Server server = new Server();
-				System.out.println("Enter with the server id:\n");
+				System.out.println("Server id:\n");
 				try {
 					server.setId(scanner.nextInt());
 				} catch (Exception e) {
 					System.out.println("Invalid Id");
 				}
 
-				System.out.println("Enter with server name:\n");
+				System.out.println("Server name:\n");
 				server.setName(scanner.nextLine());
 				
-				System.out.println("Enter with the server description:\n");
+				System.out.println("Server description:\n");
 				server.setDescription(scanner.nextLine());
 				
 				serverDAO.update(server);
 				System.out.println("Server updated with successfully");
 
 			} else if (action.equals("delete")) {
-				System.out.println("Enter with the server id:\n");
+				System.out.println("Server id:\n");
 				try {
 					serverDAO.delete(scanner.nextInt());
 					System.out.println("Server deleted with successfully");
@@ -77,7 +77,7 @@ public class App {
 				System.out.println("The amount of the server(s) is: " + serverDAO.count());
 			} else if (action.equals("add -xml")) {
 				Server server;
-				System.out.println("Enter with the path of xml file:\n");
+				System.out.println("XML path:\n");
 				String xmlPath = scanner.nextLine();
 				try {
 					server = (Server)converter.convertFromXMLToObject(xmlPath);
@@ -87,7 +87,33 @@ public class App {
 					e.printStackTrace();
 				}
 			} else if (action.equals("list -p")) {
-
+				try {
+					System.out.println("First value to pagination:\n");
+					int first = scanner.nextInt();
+					System.out.println("Limit to pagination:\n");
+					int limit = scanner.nextInt();
+					List<Server> serverPagingList = serverDAO.listPaging(first, limit);
+					for (Server item : serverPagingList) {
+						System.out.println(item.toString());
+					}
+				} catch (Exception e) {
+					System.out.println("One or more parameters was invalid");
+				}
+			} else if (action.equals("list -f")) {
+				try {
+					System.out.println("Query:\n");
+					String query = scanner.nextLine();
+					System.out.println("First value to pagination:\n");
+					int first = scanner.nextInt();
+					System.out.println("Limit to pagination:\n");
+					int limit = scanner.nextInt();
+					List<Server> serverPagingList = serverDAO.listFiltering(first, limit, query);
+					for (Server item : serverPagingList) {
+						System.out.println(item.toString());
+					}
+				} catch (Exception e) {
+					System.out.println("One or more parameters was invalid");
+				}
 			} else {
 				System.out.println("Invalid Command.");
 			}
