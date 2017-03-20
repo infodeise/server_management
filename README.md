@@ -21,7 +21,7 @@ Go to the server-management folder where is located the pom.xml and execute the 
 
 <code>mvn package</code>
 
-###Running the solution
+### Running the solution
 Go to the target folder that was generated on previus step and execute the following command:
 
 <code>java -jar server-management-0.0.1-SNAPSHOT.jar</code>
