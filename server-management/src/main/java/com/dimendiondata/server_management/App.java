@@ -132,7 +132,10 @@ public class App {
 				+ "- add -xml (in order to add a new server from xml file)"
 				+ "- edit (in order to edit a existing server)\n"
 				+ "- delete (in order to delete the specified server)\n"
-				+ "- list (in order to return the server list)\n" + "- count (in order to return the count of servers)"
+				+ "- list (in order to return the server list)\n"
+				+ "- list -f (in order to return the filtered and paging server list)\n"
+				+ "- list -p (in order to return the paging server list)\n"
+				+ "- count (in order to return the count of servers)"
 				+ "- exit (in order to quit the system";
 		System.out.println(help);
 
