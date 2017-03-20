@@ -1,7 +1,7 @@
 ## Building and Running Server Management System
 In order to implement this solution was used:
-- Java 1.8
-- Maven 3.3.9
+- Java
+- Maven
 - Spring framework
 - Hibernate
 
