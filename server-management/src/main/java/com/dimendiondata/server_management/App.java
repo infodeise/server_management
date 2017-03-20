@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.dimendiondata.server_management.dao.ServerDao;
 import com.dimendiondata.server_management.model.Server;
-import com.dimendiondata.server_management.model.XMLConverter;
+import com.dimendiondata.server_management.util.XMLConverter;
 
 /**
  * Hello world!

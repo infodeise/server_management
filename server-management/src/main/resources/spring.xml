@@ -41,7 +41,7 @@
 		<property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
 	</bean>
 	
-	<bean id="XMLConverter" class="com.dimendiondata.server_management.model.XMLConverter">
+	<bean id="XMLConverter" class="com.dimendiondata.server_management.util.XMLConverter">
 		<property name="marshaller" ref="castorMarshaller" />
 		<property name="unmarshaller" ref="castorMarshaller" />
 	</bean>

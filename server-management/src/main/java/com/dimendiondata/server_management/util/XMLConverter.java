@@ -1,4 +1,4 @@
-package com.dimendiondata.server_management.model;
+package com.dimendiondata.server_management.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
